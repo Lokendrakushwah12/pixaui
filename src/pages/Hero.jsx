@@ -8,7 +8,6 @@ import { motion } from "framer-motion";
 import Nav from "../Components/Current/Nav";
 import TabPage from "./TabPage";
 import MiscellaneousPage from "./MiscellaneousPage";
-import Bg from "../Components/Miscellaneous/Bg";
 
 const tabs = ["Button", "Cards", "Tabs", "Modals", "Miscellaneous"];
 
@@ -19,29 +18,30 @@ const Hero = () => {
     <>
       <Nav />
       <HomePage />
-      <div className="flex flex-col gap-4 w-full max-w[1440px] px-auto items-center justify-start h-screen bg-white">
+      <div className="max-w[1440px] px-auto flex h-screen w-full flex-col items-center justify-start gap-4 bg-white">
         <div
           className={
-            "mb-8 flex flex-wrap items-center gap-2 xsm border-b border-gray-200 dark:border[#515151]"
+            "xsm dark:border[#515151] mb-8 flex flex-wrap items-center gap-2 border-b border-gray-200"
           }
         >
           {tabs.map((text) => (
             <button
               key={text}
               onClick={() => setActive(text)}
-              className={` ${active === text ? "text-[#212121]" : " text-[#515151]"
-                } relative rounded-md  px-2 py-1 text-sm font-medium hover:text-[#212121] transition-all duration-300`}
+              className={` ${
+                active === text ? "text-[#212121]" : "text-[#515151]"
+              } relative rounded-md px-2 py-1 text-sm font-medium transition-all duration-300 hover:text-[#212121]`}
             >
-              <span className="relative z-10 text-lg font-[500] xsm">
+              <span className="xsm relative z-10 text-lg font-[500]">
                 {text}
               </span>
               {active === text && (
                 <motion.div
-                  className="absolute left-0 bottom-0 flex size-full h-full w-full items-end justify-center"
+                  className="absolute bottom-0 left-0 flex size-full h-full w-full items-end justify-center"
                   layoutId="underline"
                   transition={{ type: "spring", duration: 0.3, bounce: 0.2 }}
                 >
-                  <span className="z-0 h-[3px] w-3/4 bg-[#212121] rounded-t-sm"></span>
+                  <span className="z-0 h-[3px] w-3/4 rounded-t-sm bg-[#212121]"></span>
                 </motion.div>
               )}
             </button>

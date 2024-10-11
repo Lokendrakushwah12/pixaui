@@ -12,6 +12,7 @@ import ButtonV7 from "../Components/Buttons/ButtonV7";
 import ButtonV8 from "../Components/Buttons/ButtonV8";
 import ButtonV9 from "../Components/Buttons/ButtonV9";
 import Airplane from "../assets/icons/Airplane";
+import CodeBlock from "../Components/Current/CodeBlock";
 
 const customStyle = {
   ...nightOwl,
@@ -51,7 +52,7 @@ const ButtonPage = () => {
   const renderCopyIcon = (isCopied) =>
     isCopied ? (
       <svg
-        className="cursor-pointer p-1 rounded-full transition-all"
+        className="cursor-pointer rounded-full p-1 transition-all"
         width="24"
         height="24"
         viewBox="0 0 24 24"
@@ -68,7 +69,7 @@ const ButtonPage = () => {
       </svg>
     ) : (
       <svg
-        className="cursor-pointer hover:bg-[#ffffff1d] p-1 rounded-full transition-all"
+        className="cursor-pointer rounded-full p-1 transition-all hover:bg-[#ffffff1d]"
         width="24"
         height="24"
         viewBox="0 0 24 24"
@@ -132,84 +133,67 @@ const ButtonPage = () => {
   return (
     <>
       <Drawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
-        <div className="flex flex-col md:flex-row h-full w-full gap-4 pt-8">
-          <div className="md:w-1/2 w-full flex flex-col items-start justify-start gap-4">
+        <div className="flex h-full w-full flex-col gap-4 pt-8 md:flex-row">
+          <div className="flex w-full flex-col items-start justify-start gap-4 md:w-1/2">
             {/* Install */}
-            <div className="w-full relative flex flex-col items-start justify-center gap-1">
-              <h1 className="text-xl text-gray-900 font-bold">
+            <div className="relative flex w-full flex-col items-start justify-center gap-1">
+              <h1 className="text-xl font-bold text-gray-900">
                 Install the package
               </h1>
-              <div className="pr-2 text-sm select-text selection:bg-white/10 text-gray-900 border bg-[#0f1012] border-gray-200 overflow-hidden flex justify-between items-center w-full rounded-lg">
+              <CodeBlock language="bash" value={selectedData.installationCmd} />
+              {/* <div className="flex w-full select-text items-center justify-between overflow-hidden rounded-lg border border-gray-200 bg-[#0f1012] pr-2 text-sm text-gray-900 selection:bg-white/10">
                 <SyntaxHighlighter
-                  className="bg-black"
-                  language="bash"
-                  style={customStyle}
+                className="bg-black"
+                language="bash"
+                style={customStyle}
                 >
-                  {selectedData.installationCmd}
+                {selectedData.installationCmd}
                 </SyntaxHighlighter>
                 <div
-                  onClick={() =>
-                    handleCopyToClipboard(
-                      selectedData.installationCmd,
-                      "installation"
+                onClick={() =>
+                  handleCopyToClipboard(
+                    selectedData.installationCmd,
+                    "installation",
                     )
-                  }
-                >
-                  {renderCopyIcon(copied.installation)}
-                </div>
-              </div>
+                    }
+                    >
+                    {renderCopyIcon(copied.installation)}
+                    </div>
+                    </div> */}
             </div>
             {/* Usage 1 */}
-            <div className="w-full relative flex flex-col items-start justify-center gap-1">
-              <h1 className="text-xl text-gray-900 font-bold">Usage</h1>
-              <div
+            <div className="relative flex w-full flex-col items-start justify-center gap-1">
+              <h1 className="text-xl font-bold text-gray-900">Usage</h1>
+              <CodeBlock language="jsx" value={selectedData.snippetData} />
+              {/* <div
                 onClick={() =>
                   handleCopyToClipboard(selectedData.snippetData, "snippet")
-                }
-                className="absolute z-50 right-2 top-10"
-              >
-                {renderCopyIcon(copied.snippet)}
-              </div>
-              <div className="relative select-text selection:bg-white/10 text-sm text-gray-900 border bg-[#0f1012] border-gray-200  overflow-x-auto hide-scrollbar transition-all flex justify-between items-center w-full rounded-lg">
-                <SyntaxHighlighter language="jsx" style={customStyle}>
-                  {selectedData.snippetData}
-                </SyntaxHighlighter>
-              </div>
+                  }
+                  className="absolute right-2 top-10 z-50"
+                  >
+                  {renderCopyIcon(copied.snippet)}
+                  </div>
+              <div className="hide-scrollbar relative flex w-full select-text items-center justify-between overflow-x-auto rounded-lg border border-gray-200 bg-[#0f1012] text-sm text-gray-900 transition-all selection:bg-white/10">
+              <SyntaxHighlighter language="jsx" style={customStyle}>
+              {selectedData.snippetData}
+              </SyntaxHighlighter>
+              </div> */}
               {/* Airplane */}
               {selectedData.componentName === "ButtonV1" && (
-                <div className="w-full relative flex flex-col items-start justify-center gap-1">
-                  <h1 className="text-xl text-gray-900 font-bold">
+                <div className="relative flex w-full flex-col items-start justify-center gap-1">
+                  <h1 className="text-xl font-bold text-gray-900">
                     Custom icon Component should look like this
                   </h1>
-                  <div className="pr-2 text-sm select-text selection:bg-white/10 text-gray-900 border bg-[#0f1012] border-gray-200 overflow-hidden flex justify-between items-center w-full rounded-lg">
-                    <SyntaxHighlighter
-                      className="bg-black"
-                      language="bash"
-                      style={customStyle}
-                    >
-                      {selectedData.extraData}
-                    </SyntaxHighlighter>
-                    <div
-                      onClick={() =>
-                        handleCopyToClipboard(
-                          selectedData.extraData,
-                          "extraData"
-                        )
-                      }
-                      className="absolute z-50 right-2 top-10"
-                    >
-                      {renderCopyIcon(copied.extraData)}
-                    </div>
-                  </div>
+                  <CodeBlock language="jsx" value={selectedData.extraData} />
                 </div>
               )}
             </div>
           </div>
-          <div className="md:w-1/2 flex flex-col md:flex-row h-full w-full gap-4">
+          <div className="flex h-full w-full flex-col gap-4 md:w-1/2 md:flex-row">
             {/* Preview */}
-            <div className="w-full px-4 md:px-0 h-full flex flex-col items-start justify-center gap-1">
-              <h1 className="text-xl text-gray-900 font-bold">Preview</h1>
-              <div className="p-2 w-full h-full text-sm text-gray-900 border bg-white border-gray-200 overflow-y-scroll flex flex-col gap-2 justify-start items-center rounded-lg">
+            <div className="flex h-full w-full flex-col items-start justify-center gap-1 px-4 md:px-0">
+              <h1 className="text-xl font-bold text-gray-900">Preview</h1>
+              <div className="flex h-full w-full flex-col items-center justify-start gap-2 overflow-y-scroll rounded-lg border border-gray-200 bg-white p-2 text-sm text-gray-900">
                 {/* Button V1 */}
                 {selectedData.componentName === "ButtonV1" && (
                   <>
@@ -256,17 +240,17 @@ const ButtonPage = () => {
                 {/* Button V3 */}
                 {selectedData.componentName === "ButtonV3" && (
                   <>
-                    <div className="h-16 flex justify-center items-center">
+                    <div className="flex h-16 items-center justify-center">
                       <ButtonV3 title="Purple Magic" borderRadius="99px" />
                     </div>
-                    <div className="h-16 flex justify-center items-center">
+                    <div className="flex h-16 items-center justify-center">
                       <ButtonV3
                         title="Blue Magic"
                         borderRadius="99px"
                         color="#0f6fff"
                       />
                     </div>
-                    <div className="h-16 flex justify-center items-center">
+                    <div className="flex h-16 items-center justify-center">
                       <ButtonV3
                         title="Yellow Magic"
                         borderRadius="99px"
@@ -406,13 +390,13 @@ const ButtonPage = () => {
           </div>
         </div>
       </Drawer>
-      <div className="grid responsiveSection">
+      <div className="responsiveSection grid">
         {/* <div className="flex flex-wrap gap-4 justify-center items-center w-full max-w[1440px]"> */}
         {buttonData.map((data, index) => (
           <div
             key={index}
             onClick={() => toggleDrawer(data)}
-            className={`cursor-pointer flex w-[300px] h-[225px] md:w-[400px] md:h-[300px] overflow-hidden items-center justify-center border hover:bg-[#fbfbfb] transition-all rounded-2xl`}
+            className={`flex h-[225px] w-[300px] cursor-pointer items-center justify-center overflow-hidden rounded-2xl border transition-all hover:bg-[#fbfbfb] md:h-[300px] md:w-[400px]`}
           >
             {data.componentName === "ButtonV1" && (
               <ButtonV1 title={data.title} />
