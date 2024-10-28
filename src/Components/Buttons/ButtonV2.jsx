@@ -21,7 +21,7 @@ const ButtonV2 = ({
 
   return (
     <div
-      className="group relative z-0 flex h-9 cursor-pointer flex-col items-center overflow-hidden rounded-[999px] border p-2"
+      className="group relative z-0 flex h-9 w-fit cursor-pointer flex-col items-center overflow-hidden rounded-[999px] border p-2"
       style={{
         borderRadius: brRadius,
         border: border == false ? "none" : `1px solid ${borderColor}`,

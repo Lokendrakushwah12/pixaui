@@ -1,18 +1,17 @@
 import React from "react";
-import SpinnerV3 from "../Components/Miscellaneous/SpinnerV3";
 
 const HomePage = () => {
   return (
     <>
       <div className="relative bg-white">
         <div
-          className="absolute top-0 z-10 h-[400px] left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.15] pointer-events-none"
+          className="pointer-events-none absolute left-1/2 top-0 z-10 h-[400px] -translate-x-1/2 -translate-y-1/2 opacity-[0.15]"
           style={{
             backgroundImage: "radial-gradient(#A4A4A3, transparent 50%)",
           }}
         />
         <svg
-          className="absolute pointer-events-none inset-0 h-full w-full stroke-gray-200  [mask-image:radial-gradient(100%_100%_at_top_center,white,transparent)]"
+          className="pointer-events-none absolute inset-0 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_center,white,transparent)]"
           aria-hidden
         >
           <defs>
@@ -40,13 +39,13 @@ const HomePage = () => {
             fill="url(#s74rfh-fch9w-0879dst)"
           />
         </svg>
-        <div className="max-w-2xl mx-auto text-center py-24">
-          <div className="flex flex-col relative gap-12">
-            <h1 className="text-7xl font-semibold mb-4 relative">Pixa UI</h1>
-            <p className="text-[#5c5c5c] text-xl">
+        <div className="mx-auto max-w-2xl py-24 text-center">
+          <div className="relative flex flex-col gap-12">
+            <h1 className="relative mb-4 text-7xl font-semibold">Pixa UI</h1>
+            <p className="text-xl text-[#5c5c5c]">
               A Collection of <span className="font-[500]">Open Source</span>{" "}
               Components for &nbsp;
-              <span className="border font-[500] rounded-[0.25rem] bg-[#dedede3f]">
+              <span className="rounded-[0.25rem] border bg-[#dedede3f] font-[500]">
                 React + TailwindCSS
               </span>{" "}
               &nbsp; for your Project.

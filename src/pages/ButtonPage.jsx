@@ -141,43 +141,11 @@ const ButtonPage = () => {
                 Install the package
               </h1>
               <CodeBlock language="bash" value={selectedData.installationCmd} />
-              {/* <div className="flex w-full select-text items-center justify-between overflow-hidden rounded-lg border border-gray-200 bg-[#0f1012] pr-2 text-sm text-gray-900 selection:bg-white/10">
-                <SyntaxHighlighter
-                className="bg-black"
-                language="bash"
-                style={customStyle}
-                >
-                {selectedData.installationCmd}
-                </SyntaxHighlighter>
-                <div
-                onClick={() =>
-                  handleCopyToClipboard(
-                    selectedData.installationCmd,
-                    "installation",
-                    )
-                    }
-                    >
-                    {renderCopyIcon(copied.installation)}
-                    </div>
-                    </div> */}
             </div>
             {/* Usage 1 */}
             <div className="relative flex w-full flex-col items-start justify-center gap-1">
               <h1 className="text-xl font-bold text-gray-900">Usage</h1>
               <CodeBlock language="jsx" value={selectedData.snippetData} />
-              {/* <div
-                onClick={() =>
-                  handleCopyToClipboard(selectedData.snippetData, "snippet")
-                  }
-                  className="absolute right-2 top-10 z-50"
-                  >
-                  {renderCopyIcon(copied.snippet)}
-                  </div>
-              <div className="hide-scrollbar relative flex w-full select-text items-center justify-between overflow-x-auto rounded-lg border border-gray-200 bg-[#0f1012] text-sm text-gray-900 transition-all selection:bg-white/10">
-              <SyntaxHighlighter language="jsx" style={customStyle}>
-              {selectedData.snippetData}
-              </SyntaxHighlighter>
-              </div> */}
               {/* Airplane */}
               {selectedData.componentName === "ButtonV1" && (
                 <div className="relative flex w-full flex-col items-start justify-center gap-1">
