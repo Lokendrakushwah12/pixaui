@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@pixaui/button-v1": "^1.1.0",
-    "@pixaui/button-v2": "^1.1.11",
+    "@pixaui/button-v2": "^1.1.13",
     "@pixaui/button-v3": "^1.1.0",
     "@use-gesture/react": "^10.3.1",
     "@vercel/analytics": "^1.3.1",

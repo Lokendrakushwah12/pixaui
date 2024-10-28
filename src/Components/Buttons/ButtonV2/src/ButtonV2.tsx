@@ -9,13 +9,13 @@ interface ButtonV2Props {
 
 const ButtonV2: React.FC<ButtonV2Props> = ({
   title,
-  bgColor = "#f0900f", // Default color as a hex value
+  bgColor = "#f0900f",
   className = "",
   style,
 }) => {
   return (
     <div
-      className={`group relative z-0 flex h-9 cursor-pointer items-center overflow-hidden rounded-full p-2 ${className}`}
+      className={`group relative z-0 flex h-9 w-fit cursor-pointer items-center overflow-hidden rounded-full p-2 ${className}`}
       style={{ ...style }}
     >
       <div

@@ -1,6 +1,6 @@
 {
     "name": "@pixaui/button-v2",
-    "version": "1.1.12",
+    "version": "1.1.13",
     "description": "button-v2 Component",
     "main": "dist/index.js",
     "module": "dist/index.mjs",
